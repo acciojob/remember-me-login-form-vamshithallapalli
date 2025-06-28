@@ -1,35 +1,32 @@
-//your JS code here. If required.
+ window.onload = function() {
+      let savedUsername = localStorage.getItem('username');
+      let savedPassword = localStorage.getItem('password');
+      if (savedUsername && savedPassword) {
+        document.getElementById('existing').style.display = 'inline-block';
+      }
+    }
 
-window.onload = function(){
-	let savedusername = localStorage.getItem("username");
-	let savedpassword = localStorage.getItem("password");
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-	if(savedusername && savedpassword){
-		document.getElementById('existing').style.display = 'inline-block';
-	}
-}
+      let username = document.getElementById('username').value;
+      let password = document.getElementById('password').value;
+      let rememberMe = document.getElementById('checkbox').checked;
 
-document.getElementById("submit").addEventListener('click', function(){
-	let username = document.getElementById("username").value;
-	let password = document.getElementById("password").value;
-	let rememberMe = document.getElementById("checkbox").checked;
+      alert(`Logged in as ${username}`);
 
-	alert(`Logged in as ${username}`);
-
-	if(rememberMe){
-		localStorage.setItem('username', username);
-		localStorage.setItem('password', password);
-		document.getElementById('existing').style.display = 'inline-block';
-	}
-	else{
-		localStorage.removeItem('username');
+      if (rememberMe) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        document.getElementById('existing').style.display = 'inline-block';
+      } else {
+        localStorage.removeItem('username');
         localStorage.removeItem('password');
         document.getElementById('existing').style.display = 'none';
-	}
-	
-})
+      }
+    });
 
-document.getElementById('existing').addEventListener('click', function() {
+    document.getElementById('existing').addEventListener('click', function() {
       let savedUsername = localStorage.getItem('username');
       if (savedUsername) {
         alert(`Logged in as ${savedUsername}`);

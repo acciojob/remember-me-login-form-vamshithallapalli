@@ -9,7 +9,7 @@ window.onload = function(){
 	}
 }
 
-document.getElementById("submit").addEventListener('clikc', function(){
+document.getElementById("submit").addEventListener('click', function(){
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
 	let rememberMe = document.getElementById("checkbox").checked;
@@ -28,6 +28,7 @@ document.getElementById("submit").addEventListener('clikc', function(){
 	}
 	
 })
+
 document.getElementById('existing').addEventListener('click', function() {
       let savedUsername = localStorage.getItem('username');
       if (savedUsername) {
